@@ -1,10 +1,16 @@
-.table {
-    font-weight: bold;
-    max-height: 1000px;
+.container{
+    table {
+        font-weight: bold;
+        max-height: 1000px;
+    
+        th {
+            position: sticky;
+            top: -2px;
+            background-color: #343a40;
+        }
 
-    th {
-        position: sticky;
-        top: -2px;
-        background-color: #343a40;
+        img {
+            width: 48px;
+        }
     }
 }
