@@ -1,41 +1,45 @@
 <div class="container">
   <div class="row">
-    <table class="table table-borderless table-hover shadow mb-2 bg-body rounded table-dark">
-      <thead>
-        <tr>
-          <th scope="col">
-            Name
-          </th>
-          <th scope="col" class="text-center">
-            Current Price
-          </th>
-          <th scope="col" class="text-center">
-            Price change
-          </th>
-          <th scope="col" class="text-center">
-            Market cap Rank
-          </th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr 
-        *ngFor="let cryptoStatistic of cryptoStatistics;">
-          <td scope="row">
-            <img src="{{cryptoStatistic.image}}" alt="crypto logo">
-            {{cryptoStatistic.name}}
-          </td>
-          <td class="text-center text-warning">
-            {{cryptoStatistic.current_price}}
-          </td >
-          <td class="text-center text-success"
-              [ngClass]="{'text-danger': cryptoStatistic.price_change_24h < 0}">
-            {{cryptoStatistic.price_change_24h}}
-          </td>
-          <td class="text-center">
-            {{cryptoStatistic.market_cap_rank}}
-          </td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="table-responsive">
+      <table class="table table-borderless table-hover shadow mb-2 bg-body rounded table-dark">
+        <thead>
+          <tr>
+            <th scope="col">
+              Name
+            </th>
+            <th scope="col" class="text-center">
+              Current Price
+            </th>
+            <th scope="col" class="text-center">
+              Price Change
+            </th>
+            <th scope="col" class="text-center">
+              Market cap Rank
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr 
+          *ngFor="let cryptoStatistic of cryptoStatistics;">
+            <td scope="row">
+              <img src="{{cryptoStatistic.image}}" alt="crypto logo">
+              {{cryptoStatistic.name}}
+            </td>
+            <td class="text-center text-success"
+                [ngClass]="{'text-danger': cryptoStatistic.current_price < 1}">
+              {{cryptoStatistic.current_price}}
+            </td >
+            <td class="text-center text-success"
+                [ngClass]="{'text-danger': cryptoStatistic.price_change_24h < 0}">
+              {{cryptoStatistic.price_change_24h}}
+            </td>
+            <td class="text-center text-primary"
+                [ngClass]="{'text-danger': cryptoStatistic.market_cap_rank > 97}">
+              {{cryptoStatistic.market_cap_rank}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </div>
 </div>
