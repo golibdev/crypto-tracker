@@ -10,20 +10,17 @@
 <div class="container">
   <div class="row">
     <div class="table-responsive">
-      <table class="table table-borderless table-hover shadow mb-2 bg-body rounded table-dark">
+      <table class="table table-bordered table-dark">
         <thead>
           <tr>
-            <th scope="col">
+            <th>
               Name
             </th>
-            <th scope="col" class="text-center">
+            <th>
               Current Price
             </th>
-            <th scope="col" class="text-center">
+            <th>
               Price Change
-            </th>
-            <th scope="col" class="text-center">
-              Market cap Rank
             </th>
           </tr>
         </thead>
@@ -34,16 +31,12 @@
               <img src="{{cryptoStatistic.image}}" alt="crypto logo"> <br>
               {{cryptoStatistic.name}}
             </td>
-            <td class="text-center text-success"
-                [ngClass]="{'text-danger': cryptoStatistic.current_price < 1}">
+            <td scope="row">
               {{cryptoStatistic.current_price}}
             </td >
-            <td class="text-center text-success"
+            <td class="text-success" scope="row"
                 [ngClass]="{'text-danger': cryptoStatistic.price_change_24h < 0}">
-              {{cryptoStatistic.price_change_24h}}
-            </td>
-            <td class="text-center text-primary">
-              {{cryptoStatistic.market_cap_rank}}
+              {{cryptoStatistic.market_cap_change_percentage_24h.toFixed(2)}}%
             </td>
           </tr>
         </tbody>
